@@ -1,5 +1,7 @@
 #!/bin/bash
 
+current_path=$(cd "$(dirname "$0")" && pwd)
+
 function changeDebianSource() {
 	# 显示菜单
 	OPTION=$(whiptail --title " 更改源 " --menu "
@@ -11,7 +13,8 @@ function changeDebianSource() {
 	if [ $exitstatus = 0 ]; then
 		case "$OPTION" in
 		b | B)
-			echo "选择了pve7"
+			source $current_path/changeDebianSource/versionMenu.sh
+			changeDebianSourceItem
 			;;
 		c | C)
 			echo "选择了pve8"
