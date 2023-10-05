@@ -135,7 +135,7 @@ EOF
 		fi
 
 		if [ -z "$1" ]; then
-			chSource
+			changeDebianSource
 		fi
 	fi
 }
@@ -174,7 +174,7 @@ handleOptionB() {
 			selectedSource="ustc.edu.cn"
 			;;
 		q)
-			chSource
+			changeDebianSource
 			;;
 		esac
 
@@ -200,11 +200,11 @@ EOF
 				showWarning "Already changed apt source to $selectedSource! 已经更换apt源为 $selectedSource"
 			fi
 		else
-			chSource
+			changeDebianSource
 		fi
-		chSource
+		changeDebianSource
 	else
-		chSource
+		changeDebianSource
 	fi
 }
 
@@ -226,7 +226,7 @@ handleOptionC() {
 		else
 			showWarning "apt source has been changed successfully! 软件源已更换成功！"
 		fi
-		chSource
+		changeDebianSource
 	fi
 }
 
@@ -237,5 +237,5 @@ handleOptionD() {
 	cp /etc/apt/sources.list.d/pve-enterprise.list.bak /etc/apt/sources.list.d/pve-enterprise.list
 	cp /etc/apt/sources.list.d/ceph.list.bak /etc/apt/sources.list.d/ceph.list
 	showWarning "apt source has been changed successfully! 软件源已更换成功！"
-	chSource
+	changeDebianSource
 }
